@@ -11,5 +11,10 @@ const params = { "_limit": 6 };
 
 
 axios.get(baseUrl + resource, { params }).then((res) => {
-    console.log(res);
+    console.log(res.data);
 });
+
+const boxCard = document.getElementsByClassName("box-card");
+console.log(boxCard);
+
+
