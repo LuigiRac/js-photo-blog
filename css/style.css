@@ -7,6 +7,31 @@
 }
 
 body {
-    font-family: "Edu TAS Beginner, sans-serif";
+    font-family: "Edu TAS Beginner";
+    font-size: 30px;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+/*********************
+HEADER
+**********************/
+header {
+    background-image: url("../img/wall.png");
+    height: 120px;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 
 }
