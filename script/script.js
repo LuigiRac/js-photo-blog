@@ -23,7 +23,7 @@ axios.get(baseUrl + resource, { params }).then((res) => {
         const userData = resData[i];
         const card = `
         
-        <div id="id-figures" class="card">
+        <div id="${userData.id}" class="card">
                 <img class="pin" src="img/pin.svg" alt="">
                 <img src="${userData.url}" alt="${userData.title}" style="width:100%">
                 <div class="card-container debug">
