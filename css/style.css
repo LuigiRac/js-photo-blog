@@ -46,6 +46,16 @@ main {
 
 }
 
+#shadow {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
 .box-card {
     justify-content: center;
     display: flex;
@@ -104,10 +114,8 @@ p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
+    z-index: 3;
+
     display: none;
 }
 

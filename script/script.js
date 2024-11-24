@@ -42,6 +42,9 @@ axios.get(baseUrl + resource, { params }).then((res) => {
             if (existingOverlay) {
                 existingOverlay.remove()
             }
+            const shadow = document.getElementById("shadow");
+            shadow.style.display = "block";
+
 
             const overlayEl = document.createElement("div");
             overlayEl.id = "overlay-elements";
@@ -58,7 +61,9 @@ axios.get(baseUrl + resource, { params }).then((res) => {
             const closeBtn = document.querySelector(".btn");
             closeBtn.addEventListener("click", () => {
                 overlayEl.remove();
+                shadow.style.display = "none";
             })
+
         }
     }
     // console.log(boxCard);
