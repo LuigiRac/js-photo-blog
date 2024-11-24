@@ -11,8 +11,7 @@ const params = { "_limit": 6 };
 const boxCard = document.getElementById("container-card");
 // console.log(boxCard);
 
-
-// button.addEventListener("click", getFigures);
+const overlay = document.getElementById("overlay");
 
 
 axios.get(baseUrl + resource, { params }).then((res) => {
@@ -21,27 +20,43 @@ axios.get(baseUrl + resource, { params }).then((res) => {
 
     for (let i = 0; i < resData.length; i++) {
         const userData = resData[i];
-        const card = `
-        
-        <div id="${userData.id}" class="card">
+        const card = document.createElement("div")
+        card.innerHTML = `
                 <img class="pin" src="img/pin.svg" alt="">
                 <img src="${userData.url}" alt="${userData.title}" style="width:100%">
                 <div class="card-container debug">
                 
                     <p>${userData.title}</p>
-                </div>
-            </div>`
-        boxCard.innerHTML += card;
+                </div>`
+        card.className = "card";
+        card.id = userData.id;
+        console.log(card);
+        boxCard.appendChild(card);
         // console.log(userData);
+        card.addEventListener("click", function () {
+            const overlayEl = document.createElement("div");
+            overlayEl.id = "overlay-elements";
+            overlayEl.innerHTML = `
+            <button class="btn">
+                    CHIUDI
+                </button>
+                <img src="${userData.url}" alt="" style="width: 300px;">
+            `
+            overlay.appendChild(overlayEl);
+            overlay.style.display = 'flex';
+            // overlay.style.flexDirection = "column";
+            // overlay.style.alignItems = "center";
 
+
+
+            // console.log(card.id);
+        });
     }
+    // console.log(boxCard);
+
+
 });
 
-// function getFigures() {
-//     const figures = document.getElementById("id-figures");
-//     console.log(figures);
-
-// }
 
 
 
