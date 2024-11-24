@@ -34,8 +34,18 @@ axios.get(baseUrl + resource, { params }).then((res) => {
         boxCard.appendChild(card);
         // console.log(userData);
         card.addEventListener("click", function () {
+
+            getOverlay();
+        });
+        function getOverlay() {
+            let existingOverlay = document.getElementById('overlay-elements');
+            if (existingOverlay) {
+                existingOverlay.remove()
+            }
+
             const overlayEl = document.createElement("div");
             overlayEl.id = "overlay-elements";
+
             overlayEl.innerHTML = `
             <button class="btn">
                     CHIUDI
@@ -44,13 +54,12 @@ axios.get(baseUrl + resource, { params }).then((res) => {
             `
             overlay.appendChild(overlayEl);
             overlay.style.display = 'flex';
-            // overlay.style.flexDirection = "column";
-            // overlay.style.alignItems = "center";
 
-
-
-            // console.log(card.id);
-        });
+            const closeBtn = document.querySelector(".btn");
+            closeBtn.addEventListener("click", () => {
+                overlayEl.remove();
+            })
+        }
     }
     // console.log(boxCard);
 
