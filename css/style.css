@@ -50,8 +50,10 @@ main {
     display: flex;
     margin: 20px;
     gap: 20px;
-    /* width: 1147px; */
+    width: 1147px;
     flex-wrap: wrap;
+    position: relative;
+    left: 120px;
 }
 
 .card {
@@ -63,14 +65,25 @@ main {
     flex-direction: column;
     width: 24%;
     padding: 20px;
+    position: relative;
 
+}
 
+.pin {
+    position: absolute;
+    left: 46%;
+    top: 0%;
 }
 
 .card:hover {
 
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1.4);
     transform: rotate(15deg) scale(1.2);
+    z-index: 1;
+}
+
+.card:hover .pin {
+    display: none;
 }
 
 .card-container {
@@ -80,4 +93,6 @@ main {
 
 p {
     font-size: 16px;
+    position: relative;
+    right: 15px;
 }
